@@ -1,13 +1,8 @@
-package com.example.a13_homeless
+package com.example.a13_homeless.View.adapter
 
-import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.a13_homeless.FragmentUsers
 import com.example.a13_homeless.View.dest.FragmentIsseus
 
 class TabPageAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {

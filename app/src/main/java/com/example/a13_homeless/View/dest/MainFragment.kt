@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.a13_homeless.R
-import com.example.a13_homeless.TabPageAdapter
+import com.example.a13_homeless.View.adapter.TabPageAdapter
 import com.example.a13_homeless.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -22,7 +22,8 @@ class MainFragment : Fragment() {
         container, false
     ).run {
 
-        viewPager.adapter = TabPageAdapter(this@MainFragment)
+        viewPager.adapter =
+            TabPageAdapter(this@MainFragment)
 
         TabLayoutMediator(tabLayout,viewPager){
             tab, position ->
