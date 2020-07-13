@@ -5,7 +5,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a13_homeless.View.dest.FragmentRepositories">
+    tools:context="com.example.a13_homeless.View.dest.detail.FragmentRepositories">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

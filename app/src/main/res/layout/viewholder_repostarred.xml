@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="watchers"
+            type="String" />
+
+        <variable
+            name="forks"
+            type="String" />
+
+        <variable
+            name="time"
+            type="String" />
+
+        <variable
+            name="language"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="@{title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="repo and starred title" />
+
+        <TextView
+            android:id="@+id/textView_wachers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_star_border_black_24dp"
+            android:textSize="16sp"
+            android:text="@{watchers}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView_language"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/textView_forks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:drawableStart="@drawable/ic_device_hub_black_24dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView_wachers"
+            app:layout_constraintTop_toTopOf="@+id/textView_language"
+            android:text="@{forks}"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/textView_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:drawableStart="@drawable/ic_access_time_black_24dp"
+            android:textSize="16sp"
+            android:text="@{time.substring(0,10)}"
+            app:layout_constraintStart_toEndOf="@+id/textView_forks"
+            app:layout_constraintTop_toTopOf="@+id/textView_language"
+            tools:text="2020-7-13" />
+
+        <TextView
+            android:id="@+id/textView_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="@{language}"
+            app:textColorChange="@{language}"
+            app:layout_constraintStart_toEndOf="@+id/textView_time"
+            app:layout_constraintTop_toBottomOf="@+id/textView_title"
+            tools:text="language" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

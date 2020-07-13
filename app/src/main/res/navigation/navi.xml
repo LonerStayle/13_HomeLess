@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navi"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/standard">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.a13_homeless.View.dest.MainFragment"
-        android:label="MainFragment" />
+        android:id="@+id/standard"
+        android:name="com.example.a13_homeless.View.dest.standard.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_standard_to_fragmentDetail"
+            app:destination="@id/detail"
+            app:popUpTo="@id/standard"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="toolbarTitleText"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.example.a13_homeless.View.dest.detail.FragmentDetail"
+        android:label="FragmentDetail" >
+        <action
+            android:id="@+id/detail_to_standard"
+            app:destination="@id/standard" />
+    </fragment>
 </navigation>

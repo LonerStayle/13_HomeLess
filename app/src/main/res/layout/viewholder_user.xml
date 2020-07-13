@@ -4,6 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+<data>
+    <variable
+        name="vm"
+        type="com.example.a13_homeless.viewmodel.UserViewModel" />
+
+    <variable
+        name="user"
+        type="com.example.a13_homeless.api.dataholder.User" />
+
+</data>
+
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -17,7 +28,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@android:drawable/button_onoff_indicator_on" />
+        app:imageUrl="@{user.avatarUrl}"
+        tools:srcCompat="@android:drawable/ic_input_add" />
 
     <TextView
         android:id="@+id/textView_userName"
@@ -25,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         tools:text="Android"
+        android:text="@{user.login}"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView_userProfileImage"
