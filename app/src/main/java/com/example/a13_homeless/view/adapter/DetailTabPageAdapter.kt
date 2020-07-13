@@ -1,13 +1,10 @@
-package com.example.a13_homeless.View.adapter
+package com.example.a13_homeless.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.a13_homeless.View.dest.detail.FragmentDetail
-import com.example.a13_homeless.View.dest.detail.FragmentOverView
-import com.example.a13_homeless.View.dest.detail.FragmentRepositories
-import com.example.a13_homeless.View.dest.detail.FragmentStarred
-import com.example.a13_homeless.View.dest.standard.FragmentUsers
-import com.example.a13_homeless.View.dest.standard.FragmentIsseus
+import com.example.a13_homeless.view.dest.detail.FragmentOverView
+import com.example.a13_homeless.view.dest.detail.FragmentRepositories
+import com.example.a13_homeless.view.dest.detail.FragmentStarred
 
 class DetailTabPageAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

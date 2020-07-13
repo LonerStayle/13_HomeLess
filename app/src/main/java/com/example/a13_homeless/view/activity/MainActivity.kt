@@ -1,4 +1,4 @@
-package com.example.a13_homeless.View.activity
+package com.example.a13_homeless.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 object GithubApiClient {
 
-    private const val BASE_URL = "https://api.github.com/"
+    private const val BASE_URL = "https://api.github.com"
     val api: GithubApi = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
@@ -21,17 +21,17 @@ object GithubApiClient {
 
 interface GithubApi {
 
-    @GET("user/")
-    fun getUserList(): User
+    @GET("/users")
+    suspend fun getUserList():List<User>
 
-    @GET("user/{user}")
-    fun getUserOverView(@Path("user") user: String): UserOverView
+    @GET("/users/{user}")
+    suspend fun getUserOverView(@Path("user") user: String): UserOverView
 
-    @GET("user/{user}/repos")
-    fun getRepoList(@Path("user") user: String): UserRepo
+    @GET("/users/{user}/repos")
+    suspend fun getRepoList(@Path("user") user: String): List<UserRepo>
 
-    @GET("user/{user}/starred")
-    fun getStarred(@Path("user") user: String): UserRepo
+    @GET("/users/{user}/starred")
+    suspend fun getStarred(@Path("user") user: String): List<UserRepo>
 
 
 }

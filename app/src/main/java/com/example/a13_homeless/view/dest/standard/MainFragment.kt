@@ -1,14 +1,21 @@
-package com.example.a13_homeless.View.dest.standard
+package com.example.a13_homeless.view.dest.standard
 
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.a13_homeless.R
-import com.example.a13_homeless.View.adapter.TabPageAdapter
-import com.example.a13_homeless.View.viewbase.FragmentBase
+import com.example.a13_homeless.view.adapter.TabPageAdapter
+import com.example.a13_homeless.view.viewbase.FragmentBase
 import com.example.a13_homeless.databinding.FragmentMainBinding
+import com.example.a13_homeless.view.usersearch.UserSearch
+import com.example.a13_homeless.viewmodel.UserViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_main.*
+import androidx.lifecycle.Observer
 
 
 class MainFragment : FragmentBase<FragmentMainBinding>(R.layout.fragment_main) {
@@ -19,12 +26,12 @@ class MainFragment : FragmentBase<FragmentMainBinding>(R.layout.fragment_main) {
         super.onActivityCreated(savedInstanceState)
 
         setupToolbar()
-        setviewPagerAdapter()
+        setViewPagerAdapter()
 
         navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
     }
 
-    private fun setviewPagerAdapter() {
+    private fun setViewPagerAdapter() {
         binding.apply {
             viewPager.adapter =
                 TabPageAdapter(this@MainFragment)
@@ -45,5 +52,8 @@ class MainFragment : FragmentBase<FragmentMainBinding>(R.layout.fragment_main) {
            requireActivity().finish()
         }
     }
+
+
+
 
 }

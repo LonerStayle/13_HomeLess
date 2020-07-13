@@ -1,9 +1,9 @@
-package com.example.a13_homeless.View.adapter
+package com.example.a13_homeless.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.a13_homeless.View.dest.standard.FragmentUsers
-import com.example.a13_homeless.View.dest.standard.FragmentIsseus
+import com.example.a13_homeless.view.dest.standard.FragmentUsers
+import com.example.a13_homeless.view.dest.standard.FragmentIsseus
 
 class TabPageAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

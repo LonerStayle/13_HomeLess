@@ -1,4 +1,4 @@
-package com.example.a13_homeless.View.adapter
+package com.example.a13_homeless.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a13_homeless.R
 import com.example.a13_homeless.databinding.ViewholderUserBinding
-import com.example.a13_homeless.api.dataholder.User
 import com.example.a13_homeless.databinding.ViewholderIssueBinding
-import kotlinx.android.synthetic.main.fragment_users.view.*
 
 
 class IssuesAdapter(

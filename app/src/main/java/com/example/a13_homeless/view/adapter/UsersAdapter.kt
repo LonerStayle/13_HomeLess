@@ -1,22 +1,28 @@
-package com.example.a13_homeless.View.adapter
+package com.example.a13_homeless.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a13_homeless.R
 import com.example.a13_homeless.databinding.ViewholderUserBinding
 import com.example.a13_homeless.api.dataholder.User
-import kotlinx.android.synthetic.main.fragment_users.view.*
+import com.example.a13_homeless.view.dest.standard.MainFragment
+import com.example.a13_homeless.view.dest.standard.MainFragmentDirections
+import com.example.a13_homeless.viewmodel.UserViewModel
 
 
 class UsersAdapter(
-    var userList:List<User> = listOf()
+    var userList: List<User> = listOf(),
+var viewModel: UserViewModel
 ) : RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = DataBindingUtil.bind<ViewholderUserBinding>(view)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
@@ -31,5 +37,7 @@ class UsersAdapter(
         holder.binding?.apply {
             user = userList[position]
         }
+
+        holder.binding?.vm = viewModel
     }
 }

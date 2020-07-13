@@ -55,8 +55,6 @@ data class UserRepo(
     @SerializedName("ssh_url")
 	val sshUrl: String? = null,
 
-    @SerializedName("license")
-	val license: License? = null,
 
     @SerializedName("full_name")
 	val fullName: String? = null,
@@ -150,9 +148,6 @@ data class UserRepo(
 
     @SerializedName("has_pages")
 	val hasPages: Boolean? = null,
-
-    @SerializedName("owner")
-	val owner: User? = null,
 
     @SerializedName("commits_url")
 	val commitsUrl: String? = null,

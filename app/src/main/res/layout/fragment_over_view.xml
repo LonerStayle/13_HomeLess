@@ -2,10 +2,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+<import type="android.view.View"/>
+
+        <variable
+            name="userOverView"
+            type="com.example.a13_homeless.api.dataholder.UserOverView" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.a13_homeless.View.dest.detail.FragmentOverView">
+        tools:context="com.example.a13_homeless.view.dest.detail.FragmentOverView">
 
 
         <TextView
@@ -14,8 +22,10 @@
             android:layout_height="40dp"
             android:drawableStart="@drawable/ic_access_time_black_24dp"
             android:gravity="center_vertical"
+            android:text="@{userOverView.createdAt.substring(0,7)}"
             android:textColor="#121111"
             android:textSize="20sp"
+            android:visibility="@{userOverView.createdAt == null ? View.GONE:View.VISIBLE }"
             app:layout_constraintEnd_toEndOf="@+id/textView_location"
             app:layout_constraintStart_toStartOf="@+id/textView_location"
             app:layout_constraintTop_toBottomOf="@+id/textView_location"
@@ -23,10 +33,11 @@
 
         <ImageView
             android:id="@+id/imageView_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            app:imageUrl="@{userOverView.avatarUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
@@ -37,11 +48,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            tools:text="Name"
+            android:text="@{userOverView.name}"
             android:textSize="22sp"
-
             app:layout_constraintStart_toEndOf="@+id/imageView_image"
-            app:layout_constraintTop_toTopOf="@+id/imageView_image" />
+            app:layout_constraintTop_toTopOf="@+id/imageView_image"
+            tools:text="Name" />
 
         <TextView
             android:id="@+id/textView_login"
@@ -52,6 +63,7 @@
             android:textColor="#151414"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:text="@{userOverView.login}"
             app:layout_constraintStart_toEndOf="@+id/imageView_image"
             app:layout_constraintTop_toBottomOf="@+id/textView_name"
             tools:text="Login" />
@@ -61,9 +73,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            tools:text="bio"
+            android:text="@{userOverView.bio}"
             app:layout_constraintStart_toStartOf="@+id/imageView_image"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_image" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView_image"
+            tools:text="bio" />
 
         <TextView
             android:id="@+id/textView_company"
@@ -74,6 +87,8 @@
             android:gravity="center_vertical"
             android:textColor="#121111"
             android:textSize="20sp"
+            android:text="@{userOverView.company}"
+            android:visibility="@{userOverView.company == null ? View.GONE:View.VISIBLE }"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -87,6 +102,8 @@
             android:gravity="center_vertical"
             android:textColor="#121111"
             android:textSize="20sp"
+            android:text="@{userOverView.location}"
+            android:visibility="@{userOverView.location == null ? View.GONE:View.VISIBLE }"
             app:layout_constraintEnd_toEndOf="@+id/textView_company"
             app:layout_constraintStart_toStartOf="@+id/textView_company"
             app:layout_constraintTop_toBottomOf="@+id/textView_company"
@@ -106,19 +123,21 @@
             app:layout_constraintTop_toBottomOf="@+id/textView_bio">
 
             <TextView
-                android:id="@+id/textView_follwing"
+                android:id="@+id/textView_following"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textSize="24sp"
-                tools:text="FOLLOWING" />
+                tools:text="FOLLOWING"
+                android:text="@{String.format(@string/text_following_count,userOverView.following) }"/>
 
             <TextView
-                android:id="@+id/textView_follwer"
+                android:id="@+id/textView_follower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:textSize="24sp"
+                android:text="@{String.format(@string/text_follower_count,userOverView.followers)}"
                 tools:text="FOLLOWER" />
 
         </LinearLayout>
@@ -130,9 +149,9 @@
             android:layout_marginTop="16dp"
             android:background="#00B0FF"
             android:drawableStart="@drawable/ic_person_add_black_24dp"
+            android:padding="4dp"
             android:text="@string/buttonFollowText"
             android:textColor="#FFF"
-            android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
