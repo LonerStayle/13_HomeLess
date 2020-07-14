@@ -23,7 +23,7 @@
             android:layout_height="40dp"
             android:drawableStart="@drawable/ic_access_time_black_24dp"
             android:gravity="center_vertical"
-            android:text="@{userOverView.createdAt.substring(0,7)}"
+            android:text="@{userOverView.createdAt}"
             android:textColor="#121111"
             android:textSize="20sp"
             android:visibility="@{userOverView.createdAt == null ? View.GONE:View.VISIBLE }"
@@ -128,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
-                android:text="@{String.format(@string/text_following_count,userOverView.following) }"
+                android:text="@{@string/text_following_count(userOverView.following) }"
                 android:textSize="24sp"
                 tools:text="FOLLOWING" />
 
@@ -137,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:text="@{String.format(@string/text_follower_count,userOverView.followers)}"
+                android:text="@{@string/text_follower_count(userOverView.followers)}"
                 android:textSize="24sp"
                 tools:text="FOLLOWER" />
 

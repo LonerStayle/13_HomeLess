@@ -21,19 +21,43 @@ abstract class FragmentBase<B : ViewDataBinding>(@LayoutRes private val layoutRe
     }
     protected lateinit var binding: B
 
-    open fun setupViewModel() = Unit
+    open fun B.setupViewModel() = Unit
+
+    open fun B.setDatabinding() = Unit
+
+    open fun B.setEventListener() = Unit
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate<B>(inflater, layoutRes, container, false).apply {
+    ): View? = DataBindingUtil.inflate<B>(
+        inflater,
+        layoutRes,
+        container,
+        false
+    ).run {
+        binding = this
 
-            lifecycleOwner = viewLifecycleOwner
-            setupViewModel()
+        lifecycleOwner = viewLifecycleOwner
 
-        }
-        return binding.root
+        setupViewModel()
+        setDatabinding()
+        setEventListener()
+
+        root
     }
+//    {
+//        binding = DataBindingUtil.inflate<B>(inflater, layoutRes, container, false).apply {
+//
+//            lifecycleOwner = viewLifecycleOwner
+//
+//        }
+//
+//        setupViewModel()
+//        setDatabinding()
+//        setEventListener()
+//
+//        return binding.root
+//    }
 }

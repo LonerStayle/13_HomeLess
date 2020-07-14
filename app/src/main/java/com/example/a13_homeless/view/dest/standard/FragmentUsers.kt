@@ -1,6 +1,7 @@
 package com.example.a13_homeless.view.dest.standard
 
 import android.os.Bundle
+import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -20,13 +21,21 @@ class FragmentUsers : FragmentBase<FragmentUsersBinding>(R.layout.fragment_users
         showList()
         setRecyclerViewAdapter()
         userListObserver()
-        observe()
+        // observe()
 
     }
 
     private fun setRecyclerViewAdapter() {
         binding.apply {
-            recyclerVIewUserList.adapter = UsersAdapter(viewModel = viewModel)
+            recyclerVIewUserList.adapter = UsersAdapter(viewModel = viewModel) { user ->
+                user?.let { user ->
+                    user.login?.let { userID ->
+                        findNavController().navigate(
+                            MainFragmentDirections.actionStandardToDetail(userID)
+                        )
+                    }
+                }
+            }
         }
     }
 

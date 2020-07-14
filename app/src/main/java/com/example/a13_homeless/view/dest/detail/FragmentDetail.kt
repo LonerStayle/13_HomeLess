@@ -13,34 +13,33 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_detail) {
 
-  private val args by lazy {FragmentDetailArgs.fromBundle(requireArguments())}
+    private val args by lazy { FragmentDetailArgs.fromBundle(requireArguments()) }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setViewPagerAdapter()
-        setToolbar()
-        backButton()
-
-
+    override fun FragmentDetailBinding.setDatabinding() {
     }
 
-    private fun setViewPagerAdapter() {
-        binding.apply {
-            viewPagerDetail.adapter = DetailTabPageAdapter(this@FragmentDetail)
+    override fun FragmentDetailBinding.setEventListener() {
+        viewPagerDetail.adapter = DetailTabPageAdapter(this@FragmentDetail)
 
-            TabLayoutMediator(tabLayoutDetail, viewPagerDetail) { tab, position ->
-                when (position) {
-                    0 -> tab.text = "OVER VIEW"
-                    1 -> tab.text = "Repositories"
-                    2 -> tab.text = "Starred"
+        TabLayoutMediator(tabLayoutDetail, viewPagerDetail) { tab, position ->
+            when (position) {
+                DetailTabPageAdapter.INTEX_OVERVIEW -> {
+                    tab.text = "OVER VIEW"
+                }
+                DetailTabPageAdapter.INDEX_REPOSITORIES -> {
+                    tab.text = "Repositories"
+                }
+                DetailTabPageAdapter.INDEX_STARRED -> {
+                    tab.text = "Starred"
                 }
             }
-        }
+        }.attach()
 
+        setToolbar()
+        backButton()
     }
 
     private fun setToolbar() = with(binding.toolbarDetail) {
-
         title = args.userSearch
         setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
         setNavigationOnClickListener {
@@ -49,6 +48,7 @@ class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_det
         }
 
     }
+
     private fun backButton() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             findNavController().navigate(R.id.action_detail_to_standard)

@@ -8,10 +8,11 @@ import com.example.a13_homeless.view.dest.detail.FragmentStarred
 
 class DetailTabPageAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
-        companion object{
-           const val INDEX_REPOSITORIES = 1
-            const val INDEX_STARRED = 2
-        }
+    companion object {
+        const val INTEX_OVERVIEW = 0
+        const val INDEX_REPOSITORIES = 1
+        const val INDEX_STARRED = 2
+    }
 
     override fun getItemCount(): Int = 3
 

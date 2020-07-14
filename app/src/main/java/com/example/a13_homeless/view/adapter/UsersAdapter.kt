@@ -13,7 +13,8 @@ import com.example.a13_homeless.viewmodel.UserViewModel
 
 class UsersAdapter(
     var userList: List<User> = listOf(),
-var viewModel: UserViewModel
+    var viewModel: UserViewModel,
+    val onUserClick: (User?) -> Unit = {}
 ) : RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -32,11 +33,9 @@ var viewModel: UserViewModel
         holder.binding?.user = userList[position]
 
         holder.itemView.setOnClickListener {
-            viewModel.userValueToDetail(holder.binding?.user)
-
+//            viewModel.userValueToDetail(holder.binding?.user)
+            onUserClick(userList[position])
         }
-
-
     }
 
 }
