@@ -7,18 +7,21 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a13_homeless.R
 import com.example.a13_homeless.api.dataholder.UserRepo
-import com.example.a13_homeless.databinding.ViewholderRepoBinding
+import com.example.a13_homeless.databinding.ViewholderRepoandstarredBinding
+import com.example.a13_homeless.view.const.Contents
 
-class RepoAdapter(
-    var repos: List<UserRepo> = listOf()
-) : RecyclerView.Adapter<RepoAdapter.ViewHolder>() {
+class RepoAndStarredAdapter(
+    var repos: List<UserRepo> = listOf(),
+    var adapterMode: Int
+) : RecyclerView.Adapter<RepoAndStarredAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val binding = DataBindingUtil.bind<ViewholderRepoBinding>(view)
+        val binding = DataBindingUtil.bind<ViewholderRepoandstarredBinding>(view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.viewholder_repo, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.viewholder_repoandstarred, parent, false)
         )
 
     override fun getItemCount(): Int = repos.size
@@ -27,6 +30,13 @@ class RepoAdapter(
 
         holder.binding?.apply {
             val repo = repos[position]
+
+            eitherNameOrFullName =
+                if (adapterMode == Contents.USER_REPO_ADAPTER)
+                    repo.name
+                else
+                    repo.fullName
+
             userRepo = repo
         }
     }

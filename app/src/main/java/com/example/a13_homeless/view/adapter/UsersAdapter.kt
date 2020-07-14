@@ -4,14 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a13_homeless.R
 import com.example.a13_homeless.databinding.ViewholderUserBinding
 import com.example.a13_homeless.api.dataholder.User
-import com.example.a13_homeless.view.dest.standard.MainFragment
-import com.example.a13_homeless.view.dest.standard.MainFragmentDirections
 import com.example.a13_homeless.viewmodel.UserViewModel
 
 
@@ -33,11 +29,14 @@ var viewModel: UserViewModel
     override fun getItemCount(): Int = userList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.binding?.user = userList[position]
 
-        holder.binding?.apply {
-            user = userList[position]
+        holder.itemView.setOnClickListener {
+            viewModel.userValueToDetail(holder.binding?.user)
+
         }
 
-        holder.binding?.vm = viewModel
+
     }
+
 }

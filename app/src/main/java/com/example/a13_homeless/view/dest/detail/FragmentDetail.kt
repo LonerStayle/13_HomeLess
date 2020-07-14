@@ -2,15 +2,12 @@ package com.example.a13_homeless.view.dest.detail
 
 import android.os.Bundle
 import androidx.activity.addCallback
-import androidx.navigation.NavArgs
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.a13_homeless.R
 import com.example.a13_homeless.view.adapter.DetailTabPageAdapter
 import com.example.a13_homeless.view.viewbase.FragmentBase
 import com.example.a13_homeless.databinding.FragmentDetailBinding
-import com.example.a13_homeless.view.usersearch.UserSearch
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -23,6 +20,8 @@ class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_det
         setViewPagerAdapter()
         setToolbar()
         backButton()
+
+
     }
 
     private fun setViewPagerAdapter() {

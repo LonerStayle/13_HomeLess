@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<import type="android.view.View"/>
+
+        <import type="android.view.View" />
 
         <variable
             name="userOverView"
@@ -60,10 +61,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:text="@{userOverView.login}"
             android:textColor="#151414"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:text="@{userOverView.login}"
             app:layout_constraintStart_toEndOf="@+id/imageView_image"
             app:layout_constraintTop_toBottomOf="@+id/textView_name"
             tools:text="Login" />
@@ -85,9 +86,9 @@
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_group_black_24dp"
             android:gravity="center_vertical"
+            android:text="@{userOverView.company}"
             android:textColor="#121111"
             android:textSize="20sp"
-            android:text="@{userOverView.company}"
             android:visibility="@{userOverView.company == null ? View.GONE:View.VISIBLE }"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
@@ -100,9 +101,9 @@
             android:layout_height="40dp"
             android:drawableStart="@drawable/ic_place_black_24dp"
             android:gravity="center_vertical"
+            android:text="@{userOverView.location}"
             android:textColor="#121111"
             android:textSize="20sp"
-            android:text="@{userOverView.location}"
             android:visibility="@{userOverView.location == null ? View.GONE:View.VISIBLE }"
             app:layout_constraintEnd_toEndOf="@+id/textView_company"
             app:layout_constraintStart_toStartOf="@+id/textView_company"
@@ -127,17 +128,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
+                android:text="@{String.format(@string/text_following_count,userOverView.following) }"
                 android:textSize="24sp"
-                tools:text="FOLLOWING"
-                android:text="@{String.format(@string/text_following_count,userOverView.following) }"/>
+                tools:text="FOLLOWING" />
 
             <TextView
                 android:id="@+id/textView_follower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:textSize="24sp"
                 android:text="@{String.format(@string/text_follower_count,userOverView.followers)}"
+                android:textSize="24sp"
                 tools:text="FOLLOWER" />
 
         </LinearLayout>

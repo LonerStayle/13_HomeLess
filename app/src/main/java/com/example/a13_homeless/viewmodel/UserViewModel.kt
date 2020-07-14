@@ -1,4 +1,5 @@
 package com.example.a13_homeless.viewmodel
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class UserViewModel:ViewModel() {
+class UserViewModel :ViewModel() {
 
     private val _userList = MutableLiveData<List<User>>()
     val userList :LiveData<List<User>>
@@ -21,9 +22,9 @@ class UserViewModel:ViewModel() {
     val userOverView:LiveData<UserOverView>
     get() = _userOverView
 
-    private val _RepoList = MutableLiveData<List<UserRepo>>()
-    val RepoList :LiveData<List<UserRepo>>
-        get() = _RepoList
+    private val _repoList = MutableLiveData<List<UserRepo>>()
+    val repoList :LiveData<List<UserRepo>>
+        get() = _repoList
 
     private val _starredList = MutableLiveData<List<UserRepo>>()
     val starredList :LiveData<List<UserRepo>>
@@ -50,7 +51,7 @@ class UserViewModel:ViewModel() {
     fun getRepoList(Name:String){
         CoroutineScope(Dispatchers.IO).launch {
      val repoList =  GithubApiClient.api.getRepoList(Name)
-            _RepoList.postValue(repoList)
+            _repoList.postValue(repoList)
         }
     }
 
@@ -60,8 +61,10 @@ class UserViewModel:ViewModel() {
             _starredList.postValue(starred)
         }
     }
-    fun userValueToDetail(user:User) {
-        _userData.postValue(user)
+    fun userValueToDetail(user:User?) {
+        CoroutineScope(Dispatchers.IO).launch {
+            _userData.postValue(user)
+        }
     }
 
 }

@@ -4,15 +4,14 @@ import android.os.Bundle
 import com.example.a13_homeless.R
 import com.example.a13_homeless.view.viewbase.FragmentBase
 import com.example.a13_homeless.databinding.FragmentStarredBinding
-import com.example.a13_homeless.view.adapter.RepoAdapter
-import com.example.a13_homeless.view.usersearch.UserSearch
+import com.example.a13_homeless.view.adapter.RepoAndStarredAdapter
+import com.example.a13_homeless.view.const.Contents
 import androidx.lifecycle.Observer
-import com.example.a13_homeless.view.adapter.StarredAdapter
+
 
 class FragmentStarred : FragmentBase<FragmentStarredBinding>(R.layout.fragment_starred) {
 
-
-    private val args by lazy{arguments?.getString(UserSearch.USER_SEARCH)?:""}
+    private val args by lazy{arguments?.getString(Contents.USER_SEARCH)?:""}
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -23,13 +22,14 @@ class FragmentStarred : FragmentBase<FragmentStarredBinding>(R.layout.fragment_s
     }
 
     private fun setAdapter() {
-        binding.recyclerViewStarred.adapter = RepoAdapter()
+        binding.recyclerViewStarred.adapter = RepoAndStarredAdapter(adapterMode =
+        Contents.USER_STARRED_ADAPTER)
     }
 
     private fun observer() {
         viewModel.starredList.observe(viewLifecycleOwner, Observer {
-            (binding.recyclerViewStarred.adapter as StarredAdapter).run {
-                starredList = it
+            (binding.recyclerViewStarred.adapter as RepoAndStarredAdapter).run {
+                repos = it
                 notifyDataSetChanged()
             }
         })

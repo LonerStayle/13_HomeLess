@@ -27,6 +27,8 @@ buildscript {
         def retrofit_version = '2.9.0'
         def room_version = '2.2.1'
         def navigation_version = '2.3.0'
+        def hilt_version = '2.28-alpha'
+        def hilt_lifecycle_viewmodel_version = '1.0.0-alpha01'
 
         libraries = [
                 // Kotlin standard library
@@ -42,7 +44,7 @@ buildscript {
                 "androidx.appcompat:appcompat:$appcompat_version",
                 "com.google.android.material:material:$material_version",
                 "androidx.constraintlayout:constraintlayout:$constraint_layout_version",
-                "androidx.fragment:fragment-ktx:1.1.0",
+                "androidx.fragment:fragment-ktx:$appcompat_version",
 
                 // Glide
                 "com.github.bumptech.glide:glide:$glide_version",
@@ -56,6 +58,11 @@ buildscript {
                 "com.google.code.gson:gson:$gson_version",
                 "com.squareup.retrofit2:converter-gson:$retrofit_gson_version",
                 "com.squareup.retrofit2:retrofit:$retrofit_version",
+
+                //Hilt
+                "com.google.dagger:hilt-android:$hilt_version",
+                 "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle_viewmodel_version"
+
         ]
 
         arch_libraries = [
@@ -68,6 +75,8 @@ buildscript {
         ]
 
         librariesKapt = [
+                "com.google.dagger:hilt-android-compiler:$hilt_version",
+                 "androidx.hilt:hilt-compiler:$hilt_lifecycle_viewmodel_version",
                 "androidx.room:room-compiler:$room_version",
                 "com.github.bumptech.glide:compiler:$glide_version"
         ]
@@ -94,6 +103,7 @@ buildscript {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.0"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
     }
 }
 
