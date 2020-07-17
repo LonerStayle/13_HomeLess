@@ -29,6 +29,4 @@ class FragmentOverView : FragmentBase<FragmentOverViewBinding>(R.layout.fragment
     private fun showOverView() {
         viewModel.getOverView(args)
     }
-
-
 }
