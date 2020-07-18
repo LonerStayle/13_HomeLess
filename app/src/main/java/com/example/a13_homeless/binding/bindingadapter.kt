@@ -8,6 +8,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.a13_homeless.R
 
+//에러의 원인: url 스트링이 널허용이 아니었음.
 @BindingAdapter("imageUrl")
 fun imageUrl(view: ImageView, url: String?) = Glide.with(view.context).load(url).into(view)
 

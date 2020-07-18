@@ -8,7 +8,9 @@ import com.example.a13_homeless.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_main.*
 
-
+/**
+ * TODO: 모두 온크레이트 뷰로 옮길것임
+ */
 class MainFragment : FragmentBase<FragmentMainBinding>(R.layout.fragment_main) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

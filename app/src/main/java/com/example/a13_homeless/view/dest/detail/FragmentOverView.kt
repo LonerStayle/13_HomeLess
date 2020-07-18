@@ -7,7 +7,9 @@ import com.example.a13_homeless.view.viewbase.FragmentBase
 import com.example.a13_homeless.databinding.FragmentOverViewBinding
 import com.example.a13_homeless.view.const.Contents
 
-
+/**
+ * TODO: 모두 온크레이트 뷰로 옮길것임
+ */
 class FragmentOverView : FragmentBase<FragmentOverViewBinding>(R.layout.fragment_over_view) {
 
     private val args by lazy { arguments?.getString(Contents.USER_SEARCH) ?:"" }

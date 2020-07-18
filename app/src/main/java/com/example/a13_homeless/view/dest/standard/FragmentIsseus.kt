@@ -9,7 +9,9 @@ import com.example.a13_homeless.view.adapter.IssuesAdapter
 import com.example.a13_homeless.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
+/**
+ * TODO: 모두 온크레이트 뷰로 옮길것임
+ */
 class FragmentIsseus : FragmentBase<FragmentIsseusBinding>(R.layout.fragment_isseus) {
 
 

@@ -21,7 +21,7 @@ class FragmentUsers : FragmentBase<FragmentUsersBinding>(R.layout.fragment_users
         showList()
         setRecyclerViewAdapter()
         userListObserver()
-        // observe()
+         observe()
 
     }
 

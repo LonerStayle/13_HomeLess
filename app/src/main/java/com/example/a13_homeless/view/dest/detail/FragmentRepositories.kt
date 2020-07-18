@@ -8,7 +8,9 @@ import com.example.a13_homeless.databinding.FragmentRepositoriesBinding
 import com.example.a13_homeless.view.adapter.RepoAndStarredAdapter
 import com.example.a13_homeless.view.const.Contents
 
-
+/**
+ * TODO: 모두 온크레이트 뷰로 옮길것임
+ */
 class FragmentRepositories :
     FragmentBase<FragmentRepositoriesBinding>(R.layout.fragment_repositories) {
     private val args by lazy { arguments?.getString(Contents.USER_SEARCH) ?: "" }

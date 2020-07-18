@@ -8,6 +8,9 @@ import com.example.a13_homeless.view.adapter.RepoAndStarredAdapter
 import com.example.a13_homeless.view.const.Contents
 import androidx.lifecycle.Observer
 
+/**
+ * TODO: 모두 온크레이트 뷰로 옮길것임
+ */
 
 class FragmentStarred : FragmentBase<FragmentStarredBinding>(R.layout.fragment_starred) {
 
