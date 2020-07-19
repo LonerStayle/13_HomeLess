@@ -14,18 +14,19 @@ import com.example.a13_homeless.view.const.Contents
 
 class FragmentUsers : FragmentBase<FragmentUsersBinding>(R.layout.fragment_users) {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setRecyclerViewAdapter()
 
+    override fun FragmentUsersBinding.setEventListener() {
         showList()
         setRecyclerViewAdapter()
         userListObserver()
-         observe()
-
+        observe()
     }
 
+    /**
+     * 람다 함수를 쓰는 이유
+     */
     private fun setRecyclerViewAdapter() {
+
         binding.apply {
             recyclerVIewUserList.adapter = UsersAdapter(viewModel = viewModel) { user ->
                 user?.let { user ->
@@ -61,11 +62,6 @@ class FragmentUsers : FragmentBase<FragmentUsersBinding>(R.layout.fragment_users
                 Contents.USER_SEARCH to it.login
             )
 
-            findNavController().navigate(
-                MainFragmentDirections.actionStandardToDetail(
-                    userSearch = it.login!!
-                )
-            )
         })
     }
 

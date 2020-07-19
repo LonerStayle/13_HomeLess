@@ -8,31 +8,28 @@ import com.example.a13_homeless.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_main.*
 
-/**
- * TODO: 모두 온크레이트 뷰로 옮길것임
- */
 class MainFragment : FragmentBase<FragmentMainBinding>(R.layout.fragment_main) {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    override fun FragmentMainBinding.setEventListener() {
 
         setViewPagerAdapter()
         setupToolbar()
-
     }
 
 
     private fun setViewPagerAdapter() {
+        binding.apply {
+            viewPager.adapter =
+                TabPageAdapter(this@MainFragment)
 
-        viewPager.adapter =
-            TabPageAdapter(this@MainFragment)
-
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            when (position) {
-                0 -> tab.text = "USERS"
-                1 -> tab.text = "ISSEUS"
-            }
-        }.attach()
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                when (position) {
+                    0 -> tab.text = "USERS"
+                    1 -> tab.text = "ISSEUS"
+                }
+            }.attach()
+        }
     }
 
 
@@ -43,8 +40,6 @@ class MainFragment : FragmentBase<FragmentMainBinding>(R.layout.fragment_main) {
             requireActivity().finish()
         }
     }
-
-
 
 
 }

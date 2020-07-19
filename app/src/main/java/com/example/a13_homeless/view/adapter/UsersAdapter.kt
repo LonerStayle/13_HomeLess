@@ -33,7 +33,7 @@ class UsersAdapter(
         holder.binding?.user = userList[position]
 
         holder.itemView.setOnClickListener {
-//            viewModel.userValueToDetail(holder.binding?.user)
+            viewModel.userValueToDetail(holder.binding?.user)
             onUserClick(userList[position])
         }
     }

@@ -9,20 +9,18 @@ import com.example.a13_homeless.view.adapter.RepoAndStarredAdapter
 import com.example.a13_homeless.view.const.Contents
 
 /**
- * TODO: 모두 온크레이트 뷰로 옮길것임
+ * TODO: args 적용이 안됨
  */
 class FragmentRepositories :
     FragmentBase<FragmentRepositoriesBinding>(R.layout.fragment_repositories) {
     private val args by lazy { arguments?.getString(Contents.USER_SEARCH) ?: "" }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
 
+    override fun FragmentRepositoriesBinding.setEventListener() {
         setAdapter()
         observer()
         showList()
     }
-
     private fun setAdapter() {
         binding.recyclerViewRepos.adapter =
             RepoAndStarredAdapter(adapterMode = Contents.USER_REPO_ADAPTER)

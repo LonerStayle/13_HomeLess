@@ -9,16 +9,14 @@ import com.example.a13_homeless.view.const.Contents
 import androidx.lifecycle.Observer
 
 /**
- * TODO: 모두 온크레이트 뷰로 옮길것임
+ * TODO: args 적용이 안됨
  */
 
 class FragmentStarred : FragmentBase<FragmentStarredBinding>(R.layout.fragment_starred) {
 
     private val args by lazy{arguments?.getString(Contents.USER_SEARCH)?:""}
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
+    override fun FragmentStarredBinding.setEventListener() {
         setAdapter()
         observer()
         showList()
