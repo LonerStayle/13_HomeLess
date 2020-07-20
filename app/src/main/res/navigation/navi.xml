@@ -21,7 +21,8 @@
 
         <argument
             android:name="userSearch"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <action
             android:id="@+id/action_detail_to_standard"
             app:destination="@id/standard"

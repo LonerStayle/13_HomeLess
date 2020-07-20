@@ -19,7 +19,7 @@ class FragmentUsers : FragmentBase<FragmentUsersBinding>(R.layout.fragment_users
         showList()
         setRecyclerViewAdapter()
         userListObserver()
-        observe()
+
     }
 
     /**
@@ -55,15 +55,7 @@ class FragmentUsers : FragmentBase<FragmentUsersBinding>(R.layout.fragment_users
 
     }
 
-    private fun observe() {
-        viewModel.userData.observe(viewLifecycleOwner, Observer {
 
-            bundleOf(
-                Contents.USER_SEARCH to it.login
-            )
-
-        })
-    }
 
 }
 

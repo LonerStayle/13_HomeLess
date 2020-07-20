@@ -41,21 +41,21 @@ class UserViewModel :ViewModel() {
             _userList.postValue(userList)
         }
     }
-    fun getOverView(Name:String){
+    fun getOverView(Name:String?){
         CoroutineScope(Dispatchers.Main).launch {
             val overView = GithubApiClient.api.getUserOverView(Name)
             _userOverView.postValue(overView)
         }
     }
 
-    fun getRepoList(Name:String){
+    fun getRepoList(Name:String?){
         CoroutineScope(Dispatchers.Main).launch {
      val repoList =  GithubApiClient.api.getRepoList(Name)
             _repoList.postValue(repoList)
         }
     }
 
-    fun getStarred(Name:String){
+    fun getStarred(Name:String?){
         CoroutineScope(Dispatchers.Main).launch {
            val starred =  GithubApiClient.api.getStarred(Name)
             _starredList.postValue(starred)
