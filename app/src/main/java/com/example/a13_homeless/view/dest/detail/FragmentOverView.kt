@@ -12,7 +12,7 @@ import com.example.a13_homeless.view.const.Contents
  */
 class FragmentOverView : FragmentBase<FragmentOverViewBinding>(R.layout.fragment_over_view) {
 
-    private val args by lazy { arguments?.getString(Contents.USER_SEARCH) ?:"" }
+        private val args by lazy { Contents.userSearch }
 
 
     override fun FragmentOverViewBinding.setEventListener() {

@@ -8,6 +8,7 @@ import com.example.a13_homeless.R
 import com.example.a13_homeless.view.adapter.DetailTabPageAdapter
 import com.example.a13_homeless.view.viewbase.FragmentBase
 import com.example.a13_homeless.databinding.FragmentDetailBinding
+import com.example.a13_homeless.view.const.Contents
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -19,6 +20,7 @@ class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_det
     }
 
     override fun FragmentDetailBinding.setEventListener() {
+        Contents.userSearch = args.userSearch
         viewPagerDetail.adapter = DetailTabPageAdapter(this@FragmentDetail)
 
         TabLayoutMediator(tabLayoutDetail, viewPagerDetail) { tab, position ->
@@ -44,7 +46,7 @@ class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_det
         setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
         setNavigationOnClickListener {
             findNavController().navigate(R.id.action_detail_to_standard)
-
+            Contents.userSearch = null
         }
 
     }
@@ -52,6 +54,7 @@ class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_det
     private fun backButton() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             findNavController().navigate(R.id.action_detail_to_standard)
+            Contents.userSearch = null
         }
     }
 }

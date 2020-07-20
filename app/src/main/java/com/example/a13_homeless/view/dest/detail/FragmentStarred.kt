@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 
 class FragmentStarred : FragmentBase<FragmentStarredBinding>(R.layout.fragment_starred) {
 
-    private val args by lazy{arguments?.getString(Contents.USER_SEARCH)?:""}
+    private val args by lazy{Contents.userSearch}
 
     override fun FragmentStarredBinding.setEventListener() {
         setAdapter()
