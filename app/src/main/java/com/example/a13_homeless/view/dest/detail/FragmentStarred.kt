@@ -7,6 +7,7 @@ import com.example.a13_homeless.databinding.FragmentStarredBinding
 import com.example.a13_homeless.view.adapter.RepoAndStarredAdapter
 import com.example.a13_homeless.view.const.Contents
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 
 /**
  * TODO: args 적용이 안됨
@@ -15,6 +16,7 @@ import androidx.lifecycle.Observer
 class FragmentStarred : FragmentBase<FragmentStarredBinding>(R.layout.fragment_starred) {
 
     private val args by lazy{Contents.userSearch}
+
 
     override fun FragmentStarredBinding.setEventListener() {
         setAdapter()
@@ -38,6 +40,7 @@ class FragmentStarred : FragmentBase<FragmentStarredBinding>(R.layout.fragment_s
 
     private fun showList() {
         viewModel.getStarred(args)
+
     }
 
 }

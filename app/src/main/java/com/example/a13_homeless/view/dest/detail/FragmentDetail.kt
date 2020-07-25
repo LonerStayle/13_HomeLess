@@ -16,11 +16,9 @@ class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_det
 
     private val args by lazy { FragmentDetailArgs.fromBundle(requireArguments()) }
 
-    override fun FragmentDetailBinding.setDatabinding() {
-    }
-
     override fun FragmentDetailBinding.setEventListener() {
         Contents.userSearch = args.userSearch
+
         viewPagerDetail.adapter = DetailTabPageAdapter(this@FragmentDetail)
 
         TabLayoutMediator(tabLayoutDetail, viewPagerDetail) { tab, position ->
@@ -46,7 +44,7 @@ class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_det
         setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
         setNavigationOnClickListener {
             findNavController().navigate(R.id.action_detail_to_standard)
-            Contents.userSearch = null
+
         }
 
     }
@@ -54,7 +52,7 @@ class FragmentDetail : FragmentBase<FragmentDetailBinding>(R.layout.fragment_det
     private fun backButton() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             findNavController().navigate(R.id.action_detail_to_standard)
-            Contents.userSearch = null
+
         }
     }
 }
