@@ -33,5 +33,4 @@ interface GithubApi {
     @GET("/users/{user}/starred")
     suspend fun getStarred(@Path("user") user: String?): List<UserRepo>
 
-
 }
