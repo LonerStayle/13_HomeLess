@@ -1,9 +1,8 @@
-package com.example.a13_homeless.api
+package com.example.a13_homeless.api.api
 
 import com.example.a13_homeless.api.dataholder.User
 import com.example.a13_homeless.api.dataholder.UserOverView
 import com.example.a13_homeless.api.dataholder.UserRepo
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

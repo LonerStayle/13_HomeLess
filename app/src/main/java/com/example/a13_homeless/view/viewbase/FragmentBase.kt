@@ -9,13 +9,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.a13_homeless.api.repository.GithubRepository
 import com.example.a13_homeless.viewmodel.UserViewModel
 import com.example.a13_homeless.viewmodel.UserViewModelFactory
 
 abstract class FragmentBase<B : ViewDataBinding>(@LayoutRes private val layoutRes: Int) :
     Fragment() {
     protected val viewModel by lazy {
-        ViewModelProvider(this,UserViewModelFactory()).get(
+        val githubRepository =GithubRepository()
+        ViewModelProvider(this,UserViewModelFactory(githubRepository)).get(
             UserViewModel::class.java
         )
     }
