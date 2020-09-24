@@ -2,12 +2,23 @@ package com.example.a13_homeless.api.repository
 
 import com.example.a13_homeless.api.api.GithubApi
 import com.example.a13_homeless.api.api.GithubApiClient
-import com.example.a13_homeless.api.api.GithubDataSource
 import com.example.a13_homeless.api.dataholder.User
 import com.example.a13_homeless.api.dataholder.UserOverView
 import com.example.a13_homeless.api.dataholder.UserRepo
 
-class GithubRepository: GithubDataSource {
+interface DataSource {
+
+    suspend fun getUserList():List<User>
+
+    suspend fun getUserOverView(user: String?): UserOverView
+
+    suspend fun getRepoList(user: String?): List<UserRepo>
+
+    suspend fun getStarred(user: String?): List<UserRepo>
+
+}
+
+class GithubRepository: DataSource {
 
     override suspend fun getUserList(): List<User> {
         return GithubApiClient.api.getUserList()
