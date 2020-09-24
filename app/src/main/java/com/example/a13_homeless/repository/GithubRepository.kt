@@ -1,6 +1,5 @@
-package com.example.a13_homeless.api.repository
+package com.example.a13_homeless.repository
 
-import com.example.a13_homeless.api.api.GithubApi
 import com.example.a13_homeless.api.api.GithubApiClient
 import com.example.a13_homeless.api.dataholder.User
 import com.example.a13_homeless.api.dataholder.UserOverView

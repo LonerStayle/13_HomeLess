@@ -1,7 +1,7 @@
 package com.example.a13_homeless.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.a13_homeless.api.repository.GithubRepository
+import com.example.a13_homeless.repository.GithubRepository
 
 
 class UserViewModelFactory (private val githubRepository: GithubRepository):ViewModelProvider.Factory {

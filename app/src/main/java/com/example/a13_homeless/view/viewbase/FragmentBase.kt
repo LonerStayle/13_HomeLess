@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.a13_homeless.api.repository.GithubRepository
+import com.example.a13_homeless.repository.GithubRepository
 import com.example.a13_homeless.viewmodel.UserViewModel
 import com.example.a13_homeless.viewmodel.UserViewModelFactory
 
